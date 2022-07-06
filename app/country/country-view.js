@@ -1,4 +1,4 @@
-export default class View{
+export default class CountryView{
     DOM = {
         wrapper : document.querySelector('.wrapper')
     };
