@@ -11,7 +11,7 @@ export default class SortView{
     ];
 
     render(){
-        this.header.innerHTML =  `<div class="dropdown is-hoverable">
+        this.header.insertAdjacentHTML("afterbegin" ,`<div class="dropdown is-hoverable">
             <div class="dropdown-trigger">
                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                 <span>Option</span>
@@ -25,7 +25,7 @@ export default class SortView{
                     ${ this.getDropDownItems(this.options) }
                 </div>
             </div>
-            </div>`;
+            </div>`);
 
         this.addListeners();
     }

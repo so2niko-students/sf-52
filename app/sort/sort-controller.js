@@ -2,15 +2,15 @@ import SortModel from "./sort-model.js";
 import SortView from "./sort-view.js";
 
 export default class SortController{
-    constructor(onSortable){
+    constructor(pub){
         this.view = new SortView(this.onClickOption);
         this.model = new SortModel();
-        this.onSortable = onSortable;
+        this.pub = pub;
 
         this.view.render();
     }
 
     onClickOption = (ev) => {
-        this.onSortable(ev.target.innerText);
+        this.pub.notify(this.pub.events.SORT_BY, ev.target.innerText);
     }
 }

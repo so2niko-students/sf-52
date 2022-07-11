@@ -23,8 +23,16 @@ export default class CountryModel{
     }
     sortBy(sortType){
         const sortName = this.sortTypes[sortType];
-        console.log(sortType, sortName, this.data)
         this.data.sort((a, b) => a[sortName] - b[sortName]);
         return this.data;
+    }
+
+    searchBy(text){
+        if(!text.length){
+            return this.data;
+        }
+        const re = new RegExp(text, 'i');
+        const searchedData = this.data.filter(el => Object.values(el).some(val => re.test(val)));
+        return searchedData;
     }
 }
